@@ -65,7 +65,7 @@ for filename in os.listdir('.'):
 
                     credit_points = int(child.find(string=re.compile('\dcp'))[:-2])
 
-                    course_dict["subjects"][child.td.a.string] = [child.td.a.next_sibling.strip(), credit_points]
+                    course_dict["subjects"][child.td.a.string] = {"name": child.td.a.next_sibling.strip(), "credit points": credit_points}
                 except:
                     # This except block only occurs when "Select X credit points from the following:" occurs
                     course_dict[course_name][major_name][year][session].append(child.td.string)
